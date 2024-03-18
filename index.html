@@ -69,7 +69,8 @@
           var alturaPixels = window.innerHeight;
           var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
           var tamanhoPolegadas = Math.sqrt((larguraPixels * larguraPixels) + (alturaPixels * alturaPixels)) / densidadePixels;
-          document.getElementById('tamanho_tela').innerHTML = "Tamanho da Tela: " + tamanhoPolegadas.toFixed(2) + " polegadas";
+          var tamanhoCentimetros = tamanhoPolegadas * 2.54;
+          document.getElementById('tamanho_tela').innerHTML = "Tamanho da Tela: " + tamanhoCentimetros.toFixed(2) + " centímetros";
       };
     </script>    
     <!-- Custom styles for this template -->
