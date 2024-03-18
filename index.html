@@ -64,11 +64,13 @@
       }
     </style>
     <script>
-        window.onload = function() {
-            var largura = window.innerWidth;
-            var altura = window.innerHeight;
-            document.getElementById('resolucao').innerHTML = "Largura: " + largura + "px, Altura: " + altura + "px";
-        };
+      window.onload = function() {
+          var larguraPixels = window.innerWidth;
+          var alturaPixels = window.innerHeight;
+          var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
+          var tamanhoPolegadas = Math.sqrt((larguraPixels * larguraPixels) + (alturaPixels * alturaPixels)) / densidadePixels;
+          document.getElementById('tamanho_tela').innerHTML = "Tamanho da Tela: " + tamanhoPolegadas.toFixed(2) + " polegadas";
+      };
     </script>    
     <!-- Custom styles for this template -->
     <link href="pricing.css" rel="stylesheet">
@@ -230,7 +232,7 @@
           <small class="d-block mb-3 text-white">Copyright © - Todos os direitos reservados</small>
           <small class="d-block mb-3 text-white">Williansmarianos@gmail.com</small>
           <small class="d-block mb-3 text-white">Resolução do Dispositivo Móvel</small>
-          <p id="resolucao" class="d-block mb-3 text-white"></p>            
+          <p id="tamanho_tela" class="d-block mb-3 text-white"></p>            
         </div>
       </div>
     </footer>
