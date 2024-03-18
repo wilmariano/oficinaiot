@@ -64,19 +64,19 @@
       }
     </style>
     <script>
-      window.onload = function() {
-          var larguraPixels = window.innerWidth;
-          var alturaPixels = window.innerHeight;
-          var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
-          
-          // Calcula o tamanho da diagonal em polegadas
-          var diagonalPolegadas = Math.sqrt(larguraPixels * larguraPixels + alturaPixels * alturaPixels) / densidadePixels;
-          
-          // Converte a diagonal de polegadas para centímetros
-          var diagonalCentimetros = diagonalPolegadas * 2.54;
-          
-          document.getElementById('tamanho_tela').innerHTML = "Tamanho da Tela: " + diagonalCentimetros.toFixed(2) + " cm";
-      };
+    window.onload = function() {
+        var larguraPixels = window.innerWidth;
+        var alturaPixels = window.innerHeight;
+        var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
+        
+        // Calcula a largura da tela em centímetros
+        var larguraCentimetros = larguraPixels / densidadePixels / 2.54;
+        
+        // Calcula a altura da tela em centímetros
+        var alturaCentimetros = alturaPixels / densidadePixels / 2.54;
+        
+        document.getElementById('tamanho_tela').innerHTML = "Largura da Tela: " + larguraCentimetros.toFixed(2) + " cm <br> Altura da Tela: " + alturaCentimetros.toFixed(2) + " cm";
+    };
     </script>    
     <!-- Custom styles for this template -->
     <link href="pricing.css" rel="stylesheet">
