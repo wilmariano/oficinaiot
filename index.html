@@ -65,18 +65,20 @@
     </style>
     <script>
     window.onload = function() {
-        var larguraPixels = window.innerWidth;
-        var alturaPixels = window.innerHeight;
-        var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
-        
-        // Calcula a largura da tela em centímetros
-        var larguraCentimetros = larguraPixels / densidadePixels / 2.54;
-        
-        // Calcula a altura da tela em centímetros
-        var alturaCentimetros = alturaPixels / densidadePixels / 2.54;
-        
-        document.getElementById('tamanho_tela').innerHTML = "Largura da Tela: " + larguraCentimetros.toFixed(2) + " cm <br> Altura da Tela: " + alturaCentimetros.toFixed(2) + " cm";
+        var userAgent = navigator.userAgent;
+        var modelo = extractModel(userAgent);
+        document.getElementById('modelo_dispositivo').innerHTML = "Modelo do Dispositivo: " + modelo;
     };
+
+    function extractModel(userAgent) {
+        var match = userAgent.match(/\b(?:Android|iPhone\sOS|Windows\sPhone)\s([\d._]+)/);
+        if (match) {
+            var version = match[1].replace(/_/g, ".");
+            return "Dispositivo " + version;
+        } else {
+            return "Não foi possível determinar o modelo do dispositivo.";
+        }
+    }
     </script>    
     <!-- Custom styles for this template -->
     <link href="pricing.css" rel="stylesheet">
@@ -237,8 +239,8 @@
           <a name="footer">        
           <small class="d-block mb-3 text-white">Copyright © - Todos os direitos reservados</small>
           <small class="d-block mb-3 text-white">Williansmarianos@gmail.com</small>
-          <small class="d-block mb-3 text-white">Resolução do Dispositivo Móvel</small>
-          <p id="tamanho_tela" class="d-block mb-3 text-white"></p>            
+          <small class="d-block mb-3 text-white">Modelo do Dispositivo Móvel</small>
+          <p id="modelo_dispositivo" class="d-block mb-3 text-white"></p>            
         </div>
       </div>
     </footer>
