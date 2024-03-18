@@ -68,9 +68,18 @@
           var larguraPixels = window.innerWidth;
           var alturaPixels = window.innerHeight;
           var densidadePixels = window.devicePixelRatio * 96; // 96 PPI é a densidade de pixels padrão para a maioria dos navegadores
-          var tamanhoPolegadas = Math.sqrt((larguraPixels * larguraPixels) + (alturaPixels * alturaPixels)) / densidadePixels;
-          var tamanhoCentimetros = tamanhoPolegadas * 2.54;
-          document.getElementById('tamanho_tela').innerHTML = "Tamanho da Tela: " + tamanhoCentimetros.toFixed(2) + " centímetros";
+          
+          // Calcula o tamanho da largura em polegadas
+          var larguraPolegadas = larguraPixels / densidadePixels;
+          // Converte a largura de polegadas para centímetros
+          var larguraCentimetros = larguraPolegadas * 2.54;
+          
+          // Calcula o tamanho da altura em polegadas
+          var alturaPolegadas = alturaPixels / densidadePixels;
+          // Converte a altura de polegadas para centímetros
+          var alturaCentimetros = alturaPolegadas * 2.54;
+          
+          document.getElementById('tamanho_tela').innerHTML = "Largura da Tela: " + larguraCentimetros.toFixed(2) + " cm <br> Altura da Tela: " + alturaCentimetros.toFixed(2) + " cm";
       };
     </script>    
     <!-- Custom styles for this template -->
