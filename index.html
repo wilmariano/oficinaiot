@@ -63,6 +63,13 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
+    <script>
+        window.onload = function() {
+            var largura = window.innerWidth;
+            var altura = window.innerHeight;
+            document.getElementById('resolucao').innerHTML = "Largura: " + largura + "px, Altura: " + altura + "px";
+        };
+    </script>    
     <!-- Custom styles for this template -->
     <link href="pricing.css" rel="stylesheet">
   </head>
@@ -222,6 +229,8 @@
           <a name="footer">        
           <small class="d-block mb-3 text-white">Copyright © - Todos os direitos reservados</small>
           <small class="d-block mb-3 text-white">Williansmarianos@gmail.com</small>
+          <h1>Resolução do Dispositivo Móvel</h1>
+          <p id="resolucao"></p>            
         </div>
       </div>
     </footer>
